@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mapa de Portas - Even</title>
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+</head>
+
+<body>
+
+
+
+    <aside
+        class="sidebar"
+        id="sidebar"
+    >
+
+        <div class="sidebar-header">
+
+            <div class="sidebar-title">
+                Caixas salvas
+            </div>
+
+            <button
+                class="close-sidebar"
+                id="closeSidebar"
+                title="Fechar"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div class="sidebar-actions">
+
+            <button
+                class="sidebar-new"
+                id="newBoxBtn"
+            >
+                + Nova caixa
+            </button>
+
+        </div>
+
+
+        <div
+            class="saved-boxes"
+            id="savedBoxes"
+        ></div>
+
+    </aside>
+
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+
+    <header class="topbar">
+
+        <div class="left-tools">
+
+            <button
+                class="menu"
+                id="menuBtn"
+                title="Abrir caixas salvas"
+            >
+                ☰
+            </button>
+
+
+            <button
+                class="theme"
+                id="themeBtn"
+                title="Alternar tema"
+            >
+                ☾
+            </button>
+
+        </div>
+
+
+        <div class="logo-container">
+
+            <img
+                class="logo"
+                src="logo-even.png"
+                alt="Even Telecom"
+            >
+
+        </div>
+
+    </header>
+
+
+    <main class="wrap">
+
+        <section
+            class="panel"
+            id="captureArea"
+        >
+
+            <div class="form-grid">
+
+                <div class="field">
+
+                    <label for="pon">
+                        PON:
+                    </label>
+
+                    <input
+                        id="pon"
+                        type="text"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="caixa">
+                        Caixa:
+                    </label>
+
+                    <input
+                        id="caixa"
+                        type="text"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="field full">
+
+                    <label for="equipe">
+                        Equipe Técnica:
+                    </label>
+
+                    <input
+                        id="equipe"
+                        type="text"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="field full">
+
+                    <label for="endereco">
+                        Endereço:
+                    </label>
+
+                    <input
+                        id="endereco"
+                        type="text"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="qtd">
+                        Quantidade de Portas:
+                    </label>
+
+                    <select id="qtd"></select>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="ports-head">
+
+                <div>
+                    Porta
+                </div>
+
+                <div>
+                    Casa
+                </div>
+
+                <div>
+                    Código
+                </div>
+
+                <div>
+                    Status
+                </div>
+
+            </div>
+
+
+            <div id="rows"></div>
+
+
+
+            <div class="actions">
+
+
+                <button
+                    class="action save"
+                    id="salvarBtn"
+                >
+                     Salvar caixa
+                </button>
+
+
+                <button
+                    class="action"
+                    id="remanejarBtn"
+                >
+                     Remanejar
+                </button>
+
+
+                <button
+                    class="action swap"
+                    id="trocarBtn"
+                >
+                     Trocar
+                </button>
+
+
+                <button
+                    class="action generate"
+                    id="gerarBtn"
+                >
+                     Gerar texto
+                </button>
+
+
+                <div class="exports">
+
+                    <button
+                        class="export"
+                        id="csvBtn"
+                    >
+                        CSV
+                    </button>
+
+
+                    <button
+                        class="export"
+                        id="txtBtn"
+                    >
+                        TXT
+                    </button>
+
+
+                    <button
+                        class="export"
+                        id="pngBtn"
+                    >
+                        PNG
+                    </button>
+
+
+                    <button
+                        class="export pdf"
+                        id="pdfBtn"
+                    >
+                        PDF
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="output"
+                id="output"
+            >
+
+                <div class="output-title">
+                    Dados apresentados
+                </div>
+
+
+                <textarea
+                    id="resultado"
+                    readonly
+                ></textarea>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <footer class="footer">
+        versão 1.4
+    </footer>
+
+
+    <div
+        class="modal-backdrop"
+        id="modalBackdrop"
+    >
+
+        <div class="modal">
+
+            <h3 id="modalTitle"></h3>
+
+            <div id="modalContent"></div>
+
+            <div class="modal-actions">
+
+                <button
+                    class="action secondary"
+                    id="cancelModal"
+                >
+                    Cancelar
+                </button>
+
+                <button
+                    class="action"
+                    id="confirmModal"
+                >
+                    Confirmar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+    ></script>
+
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ></script>
+
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"
+    ></script>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
