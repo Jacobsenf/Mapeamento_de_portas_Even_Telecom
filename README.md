@@ -101,8 +101,6 @@ mapeamento-portas/
 ├── index.html
 ├── style.css
 ├── script.js
-│
-├── assets/
-│   └── logo.png
+├── logo.png
 │
 └── README.md
