@@ -4,7 +4,7 @@
 
 <img src="https://evenfibra.com.br/assets/logos/even-navy.png" alt="EVEN Telecom" width="300">
 
-</div>
+<div align="center">
 
 <a href="https://eventelecom.com.br/">
   <img src="https://eventelecom.com.br/images/logo-even.png" alt="Even Telecom" width="280">
