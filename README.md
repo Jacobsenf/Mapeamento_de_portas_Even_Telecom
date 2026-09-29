@@ -2,8 +2,10 @@
 
 # Mapeamento de Portas — Even Telecom
 
+<img src="URL_DIRETA_DA_LOGO" alt="EVEN Telecom" width="300">
+
 <a href="https://eventelecom.com.br/">
-  <img src="https://eventelecom.com.br/images/logo-even.png" alt="EVEN Telecom" width="280">
+  <img src="https://eventelecom.com.br/images/logo-even.png" alt="Even Telecom" width="280">
 </a>
 
 ### Sistema web para organização, mapeamento e gerenciamento de portas de caixas de atendimento
