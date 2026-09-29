@@ -2,7 +2,7 @@
 
 # Mapeamento de Portas — Even Telecom
 
-<img src="(https://evenfibra.com.br/assets/logos/even-navy.png)" alt="EVEN Telecom" width="300">
+<img src="https://evenfibra.com.br/assets/logos/even-navy.png" alt="EVEN Telecom" width="300">
 
 <a href="https://eventelecom.com.br/">
   <img src="https://eventelecom.com.br/images/logo-even.png" alt="Even Telecom" width="280">
