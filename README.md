@@ -1,106 +1,113 @@
-<div align="center">
-
 # Mapeamento de Portas — Even Telecom
 
-<img src="https://evenfibra.com.br/assets/logos/even-navy.png" alt="EVEN Telecom" width="300">
+Sistema web para organização, mapeamento e gerenciamento de portas de caixas de atendimento.
 
-<div align="center">
+## Sobre o projeto
 
-<a href="https://eventelecom.com.br/">
-  <img src="https://eventelecom.com.br/images/logo-even.png" alt="Even Telecom" width="280">
-</a>
+O Mapeamento de Portas é uma aplicação web que facilita o controle das portas das caixas de atendimento da rede. Com ela é possível registrar quais portas estão livres, ativas ou inativas, o que ajuda durante instalações, manutenções e ativações de clientes.
 
-</div>
+Funciona direto no navegador, sem instalação e sem servidor.
 
-### Sistema web para organização, mapeamento e gerenciamento de portas de caixas de atendimento
-
-</div>
-
----
-
-##  Sobre o projeto
-
-O **Mapeamento de Portas — Even Telecom** é uma aplicação web desenvolvida para facilitar a organização e o controle das portas disponíveis nas caixas de atendimento da rede.
-
-A ferramenta permite visualizar as caixas, identificar suas respectivas portas e registrar quais portas já foram utilizadas, facilitando o controle durante instalações, manutenções e ativações de clientes.
-
-O sistema foi desenvolvido para ser simples, rápido e intuitivo, podendo ser utilizado diretamente pelo navegador.
-
----
-
-##  Funcionalidades
+## Funcionalidades
 
 ### Cadastro de caixas
+- Cada caixa é identificada por **PON + número da caixa + mês**
+- O mês é obtido automaticamente a partir da data em que a caixa é salva
+- A mesma caixa pode ser salva várias vezes, em meses diferentes
+- Dados salvos no próprio navegador (LocalStorage)
 
-É possível cadastrar e organizar diferentes caixas utilizadas no mapeamento da rede.
-
-Cada caixa pode possuir suas próprias informações e portas disponíveis.
+### Formulário
+- PON e Caixa
+- Equipe Técnica (seleção): F41, F28, C64, C75, B13 e B02
+- Quantidade de portas: 8 (padrão) ou 16
+- Endereço
 
 ### Mapeamento de portas
+Cada porta possui os campos Casa, Código e Status:
 
-O sistema permite registrar as portas existentes em cada caixa e identificar quais delas já foram utilizadas.
+| Status  | Significado                     |
+|---------|---------------------------------|
+| Livre   | Porta disponível                |
+| Ativo   | Porta em uso por um cliente     |
+| Inativo | Porta com cliente desativado    |
 
-Isso facilita o acompanhamento da ocupação da caixa sem a necessidade de controles externos.
+### Menu lateral
+- Caixas salvas agrupadas por mês, do mais recente para o mais antigo
+- Mostra PON, caixa, equipe, quantidade de portas ativas e data da última atualização
+- Abrir e excluir caixas salvas
+- Botão para iniciar uma nova caixa
 
-### Salvamento das caixas
+### Remanejar e trocar
+- **Remanejar**: move o cliente de uma porta Ativa para uma porta Livre ou Inativa. A porta antiga fica como Livre.
+- **Trocar**: troca de lugar os clientes de duas portas Ativas.
 
-As caixas cadastradas ficam armazenadas no próprio navegador.
+### Exportação
+- **Gerar texto**: resumo da caixa na tela
+- **TXT**, **CSV**, **PNG** e **PDF**
+- Todos os arquivos trazem a data completa de geração
 
-Dessa forma, ao fechar ou atualizar a página, os dados permanecem disponíveis para utilização posterior.
+### Atalhos para o Hubsoft
+- Localizar cliente
+- Mapeamento
+- POP
 
-### Organização lateral
+### Outros
+- Tema claro e escuro
+- Interface responsiva (computador, notebook e celular)
 
-A aplicação possui uma aba lateral destinada ao gerenciamento das caixas cadastradas.
+## Tecnologias
 
-Nela é possível:
-
-- Visualizar caixas salvas;
-- Selecionar uma caixa;
-- Consultar suas portas;
-- Acompanhar a ocupação;
-- Acessar rapidamente diferentes caixas.
-
-### Identificação visual
-
-As portas possuem indicação visual para facilitar a identificação do seu estado.
-
-Isso permite verificar rapidamente quais portas estão:
-
-- 🟢 Disponíveis;
-- 🔴 Ocupadas;
-- ⚪ Sem informação ou ainda não mapeadas.
-
-### Controle de ocupação
-
-O sistema facilita a visualização da quantidade de portas utilizadas e disponíveis em cada caixa.
-
-Isso permite ter uma visão rápida da situação da caixa durante o atendimento.
-
-### Interface responsiva
-
-A interface foi desenvolvida para funcionar em diferentes tamanhos de tela, podendo ser utilizada em computadores, notebooks e outros dispositivos compatíveis.
-
----
-
-## Tecnologias utilizadas
-
-O projeto utiliza tecnologias web simples e leves:
-
-- **HTML5** — Estrutura da aplicação;
-- **CSS3** — Estilização e interface;
-- **JavaScript** — Lógica e funcionalidades;
-- **LocalStorage** — Armazenamento local das caixas e informações cadastradas.
-
----
+- HTML5
+- CSS3
+- JavaScript (sem frameworks)
+- LocalStorage para armazenamento local
+- html2canvas e jsPDF (carregados apenas quando o usuário exporta PNG ou PDF)
 
 ## Estrutura do projeto
 
-```text
+```
 mapeamento-portas/
-│
 ├── index.html
-├── style.css
-├── script.js
-├── logo.png
-│
-└── README.md
+├── README.md
+├── assets/
+│   └── img/
+│       └── logo-even.png
+├── css/
+│   ├── base.css
+│   ├── layout.css
+│   ├── components.css
+│   ├── sidebar.css
+│   └── responsive.css
+└── js/
+    ├── main.js
+    ├── config/
+    │   └── constants.js
+    ├── utils/
+    │   └── format.js
+    ├── services/
+    │   ├── storage.js
+    │   ├── loader.js
+    │   └── download.js
+    ├── components/
+    │   ├── theme.js
+    │   ├── modal.js
+    │   ├── ports.js
+    │   ├── form.js
+    │   └── sidebar.js
+    └── features/
+        ├── report.js
+        ├── boxes.js
+        ├── relocate.js
+        ├── swap.js
+        ├── export-csv.js
+        ├── export-txt.js
+        ├── export-png.js
+        └── export-pdf.js
+```
+
+## Observações
+
+- Os dados ficam salvos apenas no navegador e no computador em que foram cadastrados. Limpar os dados do navegador apaga as caixas salvas.
+- Caixas salvas em versões anteriores são migradas automaticamente, e o status "Indefinido" passa a ser "Livre".
+
+**Versão 2.1**
