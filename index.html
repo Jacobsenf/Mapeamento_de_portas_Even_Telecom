@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Portas - Even</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-title">Caixas salvas</div>
+            <button class="close-sidebar" id="closeSidebar" title="Fechar">×</button>
+        </div>
+        <div class="sidebar-actions">
+            <button class="sidebar-new" id="newBoxBtn">+ Nova caixa</button>
+        </div>
+        <div class="saved-boxes" id="savedBoxes"></div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <header class="topbar">
+        <div class="left-tools">
+            <button class="menu" id="menuBtn" title="Abrir caixas salvas">☰</button>
+            <button class="theme" id="themeBtn" title="Alternar tema">☾</button>
+        </div>
+        <div class="logo-container">
+            <img class="logo" src="assets/img/logo-even.png" alt="Even Telecom">
+        </div>
+    </header>
+
+    <main class="wrap">
+        <nav class="quick-links">
+            <a class="quick-link" href="https://eventelecom.hubsoft.com.br/cliente" target="_blank" rel="noopener noreferrer">Localizar cliente</a>
+            <a class="quick-link" href="https://eventelecom.hubsoft.com.br/mapeamento/projeto" target="_blank" rel="noopener noreferrer">Mapeamento</a>
+            <a class="quick-link" href="https://eventelecom.hubsoft.com.br/rede/rede/pop" target="_blank" rel="noopener noreferrer">POP</a>
+        </nav>
+
+        <section class="panel" id="captureArea">
+            <div class="form-grid">
+                <div class="field">
+                    <label for="pon">PON:</label>
+                    <input id="pon" type="text" autocomplete="off">
+                </div>
+                <div class="field">
+                    <label for="caixa">Caixa:</label>
+                    <input id="caixa" type="text" autocomplete="off">
+                </div>
+                <div class="field">
+                    <label for="equipe">Equipe Técnica:</label>
+                    <select id="equipe"></select>
+                </div>
+                <div class="field">
+                    <label for="qtd">Quantidade de Portas:</label>
+                    <select id="qtd"></select>
+                </div>
+                <div class="field full">
+                    <label for="endereco">Endereço:</label>
+                    <input id="endereco" type="text" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="ports-head">
+                <div>Porta</div>
+                <div>Casa</div>
+                <div>Código</div>
+                <div>Status</div>
+            </div>
+
+            <div id="rows"></div>
+
+            <div class="actions">
+                <button class="action save" id="salvarBtn">Salvar caixa</button>
+                <button class="action" id="remanejarBtn">Remanejar</button>
+                <button class="action swap" id="trocarBtn">Trocar</button>
+                <button class="action generate" id="gerarBtn">Gerar texto</button>
+                <div class="exports">
+                    <button class="export" id="csvBtn">CSV</button>
+                    <button class="export" id="txtBtn">TXT</button>
+                    <button class="export" id="pngBtn">PNG</button>
+                    <button class="export pdf" id="pdfBtn">PDF</button>
+                </div>
+            </div>
+
+            <div class="output" id="output">
+                <div class="output-title">Dados apresentados</div>
+                <textarea id="resultado" readonly></textarea>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">versão 2.1</footer>
+
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal">
+            <h3 id="modalTitle"></h3>
+            <div id="modalContent"></div>
+            <div class="modal-actions">
+                <button class="action secondary" id="cancelModal">Cancelar</button>
+                <button class="action" id="confirmModal">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="js/config/constants.js"></script>
+    <script defer src="js/utils/format.js"></script>
+    <script defer src="js/services/storage.js"></script>
+    <script defer src="js/services/loader.js"></script>
+    <script defer src="js/services/download.js"></script>
+    <script defer src="js/components/theme.js"></script>
+    <script defer src="js/components/modal.js"></script>
+    <script defer src="js/components/ports.js"></script>
+    <script defer src="js/components/form.js"></script>
+    <script defer src="js/components/sidebar.js"></script>
+    <script defer src="js/features/report.js"></script>
+    <script defer src="js/features/boxes.js"></script>
+    <script defer src="js/features/relocate.js"></script>
+    <script defer src="js/features/swap.js"></script>
+    <script defer src="js/features/export-csv.js"></script>
+    <script defer src="js/features/export-txt.js"></script>
+    <script defer src="js/features/export-png.js"></script>
+    <script defer src="js/features/export-pdf.js"></script>
+    <script defer src="js/main.js"></script>
+</body>
+</html>

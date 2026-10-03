@@ -1,0 +1,158 @@
+.topbar {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+}
+
+.left-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu {
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, .22);
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    transition: .15s;
+}
+
+.menu:hover {
+    background: rgba(0, 0, 0, .35);
+}
+
+.theme {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: transparent;
+    color: #ffd24a;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    padding: 6px 13px;
+    border-radius: 8px;
+    height: 48px;
+}
+
+.logo {
+    width: 130px;
+    max-height: 38px;
+    object-fit: contain;
+    display: block;
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 0 20px 56px;
+}
+
+.quick-links {
+    width: min(820px, 100%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.quick-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    padding: 0 10px;
+    border-radius: 9px;
+    background: var(--panel);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: .15s;
+}
+
+.quick-link:hover {
+    transform: translateY(-1px);
+    filter: brightness(.97);
+}
+
+.panel {
+    width: min(820px, 100%);
+    background: var(--panel);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px 20px;
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+}
+
+.exports {
+    display: flex;
+    gap: 7px;
+    margin-left: auto;
+}
+
+.output {
+    margin-top: 14px;
+    display: none;
+}
+
+.output.show {
+    display: block;
+}
+
+.output-title {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 190px;
+    resize: vertical;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 10px;
+    background: var(--input);
+    color: var(--text);
+    font: 12px/1.45 Consolas, monospace;
+}

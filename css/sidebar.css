@@ -1,0 +1,175 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    background: var(--sidebar);
+    z-index: 1000;
+    box-shadow: 4px 0 18px rgba(0, 0, 0, .18);
+    transform: translateX(-105%);
+    transition: transform .25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+.sidebar-header {
+    height: 70px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.close-sidebar {
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.sidebar-actions {
+    padding: 14px;
+}
+
+.sidebar-new {
+    width: 100%;
+    border: 0;
+    border-radius: 7px;
+    padding: 11px;
+    background: #16845c;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.saved-boxes {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 10px 20px;
+}
+
+.saved-empty {
+    padding: 20px 10px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.month-group {
+    margin-bottom: 10px;
+}
+
+.month-group summary {
+    display: flex;
+    align-items: center;
+    padding: 9px 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    background: var(--sidebar-hover);
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+
+.month-group summary::-webkit-details-marker {
+    display: none;
+}
+
+.month-group summary::after {
+    content: "▾";
+    margin-left: 8px;
+}
+
+.month-group:not([open]) summary::after {
+    content: "▸";
+}
+
+.month-count {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.saved-box {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.saved-box-main {
+    padding: 11px;
+    cursor: pointer;
+    transition: .15s;
+}
+
+.saved-box-main:hover {
+    background: var(--sidebar-hover);
+}
+
+.saved-box-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.saved-box-info {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+.saved-box-actions {
+    display: flex;
+    border-top: 1px solid var(--line);
+}
+
+.saved-box-actions button {
+    flex: 1;
+    border: 0;
+    padding: 7px;
+    cursor: pointer;
+    background: var(--sidebar);
+    color: var(--text);
+    font-size: 11px;
+}
+
+.saved-box-actions button:hover {
+    background: var(--sidebar-hover);
+}
+
+.saved-box-actions .delete {
+    color: #d94a4a;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .45);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+}
+
+.sidebar-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}

@@ -1,0 +1,130 @@
+.ports-head {
+    margin-top: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 55px 1fr 1fr 120px;
+    gap: 8px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.port-row {
+    display: grid;
+    grid-template-columns: 55px 1fr 1fr 120px;
+    gap: 8px;
+    align-items: center;
+    margin-top: 7px;
+}
+
+.port-number {
+    font-size: 14px;
+}
+
+.status {
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.status[data-status="Ativo"] {
+    border-color: #63b87c;
+}
+
+.status[data-status="Inativo"] {
+    border-color: #d77878;
+}
+
+.status[data-status="Livre"] {
+    border-color: #999999;
+}
+
+button.action,
+button.export {
+    border: 0;
+    border-radius: 7px;
+    padding: 9px 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13px;
+    background: #2469ad;
+    color: white;
+    transition: .15s;
+}
+
+button.action:hover,
+button.export:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.action.save {
+    background: #16845c;
+}
+
+.action.secondary {
+    background: #68737d;
+}
+
+.action.swap {
+    background: #7a4eb5;
+}
+
+.action.generate {
+    background: #16845c;
+}
+
+.export {
+    background: #444444 !important;
+}
+
+.export.pdf {
+    background: #a52c2c !important;
+}
+
+.modal-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 2000;
+}
+
+.modal-backdrop.show {
+    display: flex;
+}
+
+.modal {
+    width: min(450px, 100%);
+    background: var(--panel);
+    color: var(--text);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+.modal h3 {
+    margin: 0 0 14px;
+    font-size: 17px;
+}
+
+.modal .field {
+    margin-bottom: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.hint {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 5px;
+}
